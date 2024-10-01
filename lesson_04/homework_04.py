@@ -72,26 +72,25 @@ print('* ' * 70)
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-word_list: list = tom_sawyer_removing_extra_spaces.split('. ')
-count_tom: int = 0
-id_sentence_with_second_tom: int = -1
+search_word = 'Tom'
+len_search_word = len(search_word)
+story = tom_sawyer_removing_extra_spaces
+len_story = len(story)
+count_tom = 0
+i = 0 # можно и не объявлять переменную 'i' здесь, но тогда она за пределами цикла 'for' не красиво подсвечивается
 
-for sentence in word_list:
-    if 'Tom' in sentence:
-        count_tom += sentence.count('Tom')
-    id_sentence_with_second_tom += 1
-    if count_tom >= 2:
+for i in range(len_story-len_search_word):
+    if story[i:i+len_search_word] == 'Tom':
+        count_tom += 1
+    if count_tom == 2:
         break
 
-list_sentence_with_second_tom: list = word_list[id_sentence_with_second_tom].split()
-id_word_tom_in_sentence: int = 0
-for word in list_sentence_with_second_tom:
-    if word == 'Tom':
-        break
-    id_word_tom_in_sentence += 1
+if count_tom < 2:
+    print('Том упоменается в тексте меньше двух раз')
+else:
+    print(f'Второй раз Том встречается в тексте под индексом {i}')
+    print(story[i:i+len_search_word])
 
-print(f'{id_sentence_with_second_tom} индекс предложения в котором Tom упоминается второй раз в рассказе')
-print(f'Том находится под {id_word_tom_in_sentence} индексом предложении')
 print('* ' * 70)
 
 # task 07
