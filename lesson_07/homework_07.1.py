@@ -16,7 +16,7 @@ def multiplication_table(number):
     multiplier = 1
 
     # Complete the while loop condition.
-    while multiplier <= 5:
+    while True:
         result = number * multiplier
         # десь тут помила, а може не одна
         if result > 25:
